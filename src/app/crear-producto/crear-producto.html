@@ -1,0 +1,36 @@
+<div class="container mt-5">
+  <h2 class="mb-4">Agregar Nuevo Producto</h2>
+
+  <!-- Botón regresar -->
+  <div class="mb-3">
+    <a class="btn btn-outline-secondary" routerLink="/">
+      ⬅ Regresar al Home
+    </a>
+  </div>
+
+  <form (ngSubmit)="guardarProducto()" #productoForm="ngForm">
+    <!-- tus campos -->
+    <div class="mb-3">
+      <label class="form-label">Nombre</label>
+      <input type="text" class="form-control" [(ngModel)]="producto.nombre" name="nombre" required />
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Precio</label>
+      <input type="number" class="form-control" [(ngModel)]="producto.precio" name="precio" required />
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Categoría</label>
+      <select class="form-select" [(ngModel)]="producto.categoria_id" name="categoria_id" required>
+        <option value="" disabled selected>Seleccione una categoría</option>
+        <option *ngFor="let c of categorias" [value]="c.id">{{ c.nombre }}</option>
+      </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Guardar Producto</button>
+  </form>
+<div *ngIf="mensaje" class="alert alert-success mt-3 text-center">
+  <strong>{{ mensaje }}</strong>
+</div>
+</div>

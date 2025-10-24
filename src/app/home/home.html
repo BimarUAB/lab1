@@ -99,16 +99,50 @@
             </div>
         </section>
         <!-- Call to action section-->
-        <section class="cta">
-            <div class="cta-content">
+        <section class="bg-white py-5">
+  <div class="container px-5">
                 <div class="container px-5">
-                    <h2 class="text-white display-1 lh-1 mb-4">
+                    <h2 class="text-dark display-1 lh-1 mb-4">
                         Stop waiting.
                         <br />
                         Start building.
                     </h2>
-                    <a class="btn btn-outline-light py-3 px-4 rounded-pill" href="https://startbootstrap.com/theme/new-age" target="_blank">Download for free</a>
+                    <a class="btn btn-outline-dark py-3 px-4 rounded-pill" href="https://startbootstrap.com/theme/new-age" target="_blank">Download for free</a>
                 </div>
+               <div class="container mt-4">
+  <h2 class="mb-4 text-center">Lista de Productos</h2>
+
+  <div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered align-middle">
+      <thead class="table-dark text-center">
+        <tr>
+          <th>#</th>
+          <th>Nombre</th>
+          <th>Precio </th>
+          <th>Categoría</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let p of productos; let i = index">
+          <td class="text-center">{{ i + 1 }}</td>
+          <td>{{ p.nombre }}</td>
+          <td class="text-end">${{ p.precio }}</td>
+          <td>
+            <span class="badge bg-secondary">{{ p.categoria?.nombre || 'Sin categoría' }}</span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="text-end mb-3">
+  <a class="btn btn-success" routerLink="/crear-producto">
+    ➕ Agregar Producto
+  </a>
+</div>
+  </div>
+  <div class="text-end mb-3">
+
+</div>
+</div>
             </div>
         </section>
         <!-- App badge section-->
